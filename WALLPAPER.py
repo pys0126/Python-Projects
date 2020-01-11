@@ -13,11 +13,11 @@ import time
 
 #手机壁纸爬虫
 def Phoneimg():
-    page = input("\t-----输入抓取起始页（末页343）：")
-    page1 = input("\t-----输入抓取页数：")
     print("\t---%-本脚本由PYS编写-%---")
     print("\t-----欢迎访问我的网站：https://darkabyss.top -----")
     print('\t===按Ctrl+C结束运行===\n')
+    page = input("\t-----输入抓取起始页（末页343）：")
+    page1 = input("\t-----输入抓取页数：")
     time.sleep(1)
     os1 = input("\t-----是否创建文件,创建了填N（Y/N）：")
 
@@ -81,7 +81,7 @@ def Phoneimg():
 def PCimg():
     print('/////-✨-本脚本由PYS创建-✨-/////')
     print("===欢迎访问我的网站：https://darkabyss.top===")
-    print('===按Ctrl+C结束运行===')
+    print('===按Ctrl+C结束运行===\n')
 
     z = 0
     page = int(input('===输入抓取起始页：'))
