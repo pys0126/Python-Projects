@@ -12,7 +12,6 @@ import time
 
 #手机壁纸爬虫
 def Phoneimg():
-    
     page1 = input("\t-----输入抓取页数：")
     print("\t---%-本脚本由PYS编写-%---")
     print("\t-----欢迎访问我的网站：https://darkabyss.top -----")
@@ -21,7 +20,7 @@ def Phoneimg():
     os1 = input("\t-----是否创建文件,创建了填N（Y/N）：")
 
     i = 6
-    for wh in range(5):
+    for wh in range(i):
         i -= 1
         page = input("\t-----输入抓取起始页（末页343）：")
         if page == "1":
@@ -31,24 +30,25 @@ def Phoneimg():
             print("\t-----文件创建成功-----")
             print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
             break
-        else:
-            if i == 0:
-                print('-----重试过多请重新运行-----')
-                exit(1)
-            else:
-                page = input('-----输入错误请重新输入，你还有' + str(i) + '次机会-----')
-                continue
-    
-    i = 6
-    for whh in os1:
-        if os1 == "y" or os1 == "Y":
-            print("\t-----创建文件中...-----")
-            time.sleep(1)
-            os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
-            print("\t-----文件创建成功-----")
-            print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
-        elif os1 == "n" or os1 == "N":
-            break
+        elif page == int() and page != "1":
+            i = 6
+            for whh in os1:
+                i -= 1
+                if os1 == "y" or os1 == "Y":
+                    print("\t-----创建文件中...-----")
+                    time.sleep(1)
+                    os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
+                    print("\t-----文件创建成功-----")
+                    print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
+                elif os1 == "n" or os1 == "N":
+                    break
+                else:
+                    if i == 0:
+                        print('-----重试过多请重新运行-----')
+                        exit(1)
+                    else:
+                        page = input('-----输入错误请重新输入，你还有' + str(i) + '次机会-----')
+                        continue
         else:
             if i == 0:
                 print('-----重试过多请重新运行-----')
@@ -102,9 +102,7 @@ def PCimg():
     print('/////-✨-本脚本由PYS创建-✨-/////')
     print("===欢迎访问我的网站：https://darkabyss.top===")
     print('===按Ctrl+C结束运行===')
-
     z = 0
-    
     time.sleep(1)
     i = 6
     for True_False in range(i):
@@ -117,6 +115,26 @@ def PCimg():
             print('===创建成功===')
             print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
             break
+        elif page == int() and page != 1:
+            i = 6
+            for True_False1 in range(5):
+                i -= 1
+                T_of_F = input('===是否创建文件,创建了填N(Y/N)：')
+                if T_of_F == 'y' or T_of_F == 'Y':
+                    print('===创建''PCimg''文件===')
+                    time.sleep(1)
+                    os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
+                    print('===创建成功===')
+                    print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
+                elif T_of_F == 'n' or T_of_F == 'N':
+                    break
+                else:
+                    if i == 0:
+                        print('===重试过多请重新运行===')
+                        exit(1)
+                    else:
+                        page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
+                        continue
         else:
             if i == 0:
                 print('===重试过多请重新运行===')
@@ -124,26 +142,8 @@ def PCimg():
             else:
                 page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
                 continue
-    i = 6
-    for True_False1 in range(5):
-        T_of_F = input('===是否创建文件,创建了填N(Y/N)：')
-        if T_of_F == 'y' or T_of_F == 'Y':
-            print('===创建''PCimg''文件===')
-            time.sleep(1)
-            os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
-            print('===创建成功===')
-            print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
-        elif T_of_F == 'n' or T_of_F == 'N':
-            break
-        else:
-            if i == 0:
-                print('===重试过多请重新运行===')
-                exit(1)
-            else:
-                page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
-                continue
+    
                     
-
     for ss in range(int(input('===输入抓取页数：'))):
         page += 1
         htm = urlopen("https://wall.alphacoders.com/featured.php?lang=Chinese&page=" + str(page)).read().decode("utf-8")
@@ -184,8 +184,8 @@ def PCimg():
         print('===已完成第' + str(page-1) + '页===\n')
 
 #开始...
+string = print("\t*****欢迎使用自动下载壁纸脚本*****\n")
 while True:
-    string = print("\t*****欢迎使用自动下载壁纸脚本*****\n")
     input_str = input("\t*****输入'PC'下载电脑壁纸，输入'PH'下载手机壁纸*****\n\t*****在此输入(PC/PH)：")    
     if input_str == "pc" or input_str == "PC":
         PCimg()
