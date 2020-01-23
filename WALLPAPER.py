@@ -1,6 +1,7 @@
 '''
     手机壁纸爬取网址：https://mobile.alphacoders.com/by-device/524/Redmi-Note-7-Wallpapers?page=1
     电脑壁纸爬取网址：https://wall.alphacoders.com/featured.php?lang=Chinese
+    本python脚本下载地址：https://darkabyss.top/dlc/WALLPAPER.py
 '''
 
 from bs4 import BeautifulSoup
