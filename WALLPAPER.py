@@ -30,25 +30,23 @@ def Phoneimg():
             print("\t-----文件创建成功-----")
             print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
             break
-        elif page == int() and page != "1":
-            i = 6
-            for whh in os1:
-                i -= 1
-                if os1 == "y" or os1 == "Y":
-                    print("\t-----创建文件中...-----")
-                    time.sleep(1)
-                    os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
-                    print("\t-----文件创建成功-----")
-                    print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
-                elif os1 == "n" or os1 == "N":
-                    break
+        elif page == int(page) and page != "1":
+            i -= 1
+            if os1 == "y" or os1 == "Y":
+                print("\t-----创建文件中...-----")
+                time.sleep(1)
+                os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
+                print("\t-----文件创建成功-----")
+                print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
+            elif os1 == "n" or os1 == "N":
+                break
+            else:
+                if i == 0:
+                    print('-----重试过多请重新运行-----')
+                    exit(1)
                 else:
-                    if i == 0:
-                        print('-----重试过多请重新运行-----')
-                        exit(1)
-                    else:
-                        page = input('-----输入错误请重新输入，你还有' + str(i) + '次机会-----')
-                        continue
+                    page = input('-----输入错误请重新输入，你还有' + str(i) + '次机会-----')
+                    continue
         else:
             if i == 0:
                 print('-----重试过多请重新运行-----')
@@ -115,26 +113,24 @@ def PCimg():
             print('===创建成功===')
             print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
             break
-        elif page == int() and page != 1:
-            i = 6
-            for True_False1 in range(5):
-                i -= 1
-                T_of_F = input('===是否创建文件,创建了填N(Y/N)：')
-                if T_of_F == 'y' or T_of_F == 'Y':
-                    print('===创建''PCimg''文件===')
-                    time.sleep(1)
-                    os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
-                    print('===创建成功===')
-                    print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
-                elif T_of_F == 'n' or T_of_F == 'N':
-                    break
+        elif page == int(page) and page != 1:
+            i -= 1
+            T_of_F = input('===是否创建文件,创建了填N(Y/N)：')
+            if T_of_F == 'y' or T_of_F == 'Y':
+                print('===创建''PCimg''文件===')
+                time.sleep(1)
+                os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
+                print('===创建成功===')
+                print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
+            elif T_of_F == 'n' or T_of_F == 'N':
+                break
+            else:
+                if i == 0:
+                    print('===重试过多请重新运行===')
+                    exit(1)
                 else:
-                    if i == 0:
-                        print('===重试过多请重新运行===')
-                        exit(1)
-                    else:
-                        page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
-                        continue
+                    page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
+                    continue
         else:
             if i == 0:
                 print('===重试过多请重新运行===')
@@ -174,7 +170,7 @@ def PCimg():
                     for s in all_img:
                         z += 1
                         img_url = s['src']
-                        img_file = 'C:\\Users\\Administrator\\Downloads\\PCimg\\' + str(page*30+z-30) + '.png'
+                        img_file = 'C:\\Users\\Administrator\\Downloads\\PCimg\\' + str(page*30-30+z) + '.jpg'
                         print('////////')
                         r = requests.get(img_url)
                         print('/////////')
