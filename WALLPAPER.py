@@ -1,7 +1,6 @@
 '''
     手机壁纸爬取网址：https://mobile.alphacoders.com/by-device/524/Redmi-Note-7-Wallpapers?page=1
     电脑壁纸爬取网址：https://wall.alphacoders.com/featured.php?lang=Chinese
-    我的网站：https://darkabyss.top
 '''
 
 from bs4 import BeautifulSoup
@@ -13,29 +12,50 @@ import time
 
 #手机壁纸爬虫
 def Phoneimg():
+    
+    page1 = input("\t-----输入抓取页数：")
     print("\t---%-本脚本由PYS编写-%---")
     print("\t-----欢迎访问我的网站：https://darkabyss.top -----")
     print('\t===按Ctrl+C结束运行===\n')
-    page = input("\t-----输入抓取起始页（末页343）：")
-    page1 = input("\t-----输入抓取页数：")
     time.sleep(1)
     os1 = input("\t-----是否创建文件,创建了填N（Y/N）：")
 
-    if page == "1":
-        print("\t-----创建文件中...-----")
-        time.sleep(1)
-        os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
-        print("\t-----文件创建成功-----")
-        print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
-    else:
+    i = 6
+    for wh in range(5):
+        i -= 1
+        page = input("\t-----输入抓取起始页（末页343）：")
+        if page == "1":
+            print("\t-----创建文件中...-----")
+            time.sleep(1)
+            os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
+            print("\t-----文件创建成功-----")
+            print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
+            break
+        else:
+            if i == 0:
+                print('-----重试过多请重新运行-----')
+                exit(1)
+            else:
+                page = input('-----输入错误请重新输入，你还有' + str(i) + '次机会-----')
+                continue
+    
+    i = 6
+    for whh in os1:
         if os1 == "y" or os1 == "Y":
             print("\t-----创建文件中...-----")
             time.sleep(1)
             os.mkdir("C:\\Users\\Administrator\\Downloads\\phoneimg\\")
             print("\t-----文件创建成功-----")
             print("\t-----下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的phoneimg文件夹下查看-----")
+        elif os1 == "n" or os1 == "N":
+            break
         else:
-            pass
+            if i == 0:
+                print('-----重试过多请重新运行-----')
+                exit(1)
+            else:
+                page = input('-----输入错误请重新输入，你还有' + str(i) + '次机会-----')
+                continue
 
     p = 0
     y = 0
@@ -81,28 +101,48 @@ def Phoneimg():
 def PCimg():
     print('/////-✨-本脚本由PYS创建-✨-/////')
     print("===欢迎访问我的网站：https://darkabyss.top===")
-    print('===按Ctrl+C结束运行===\n')
+    print('===按Ctrl+C结束运行===')
 
     z = 0
-    page = int(input('===输入抓取起始页：'))
-    T_of_F = input('===是否创建文件,创建了填N(Y/N)：')
+    
     time.sleep(1)
-
-    if page == 1:
-        print('===创建文件中===')
-        time.sleep(1)
-        os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
-        print('===创建成功===')
-        print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
-    else:
+    i = 6
+    for True_False in range(i):
+        i -= 1
+        page = int(input('===输入抓取起始页：'))
+        if page == 1:
+            print('===创建文件中===')
+            time.sleep(1)
+            os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
+            print('===创建成功===')
+            print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
+            break
+        else:
+            if i == 0:
+                print('===重试过多请重新运行===')
+                exit(1)
+            else:
+                page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
+                continue
+    i = 6
+    for True_False1 in range(5):
+        T_of_F = input('===是否创建文件,创建了填N(Y/N)：')
         if T_of_F == 'y' or T_of_F == 'Y':
             print('===创建''PCimg''文件===')
             time.sleep(1)
             os.makedirs('C:\\Users\\Administrator\\Downloads\\PCimg\\')
             print('===创建成功===')
             print("===下载好的壁纸可在C盘\\Users\\Administrator\\Downloads\\的PCimg文件夹下查看===")
+        elif T_of_F == 'n' or T_of_F == 'N':
+            break
         else:
-            pass
+            if i == 0:
+                print('===重试过多请重新运行===')
+                exit(1)
+            else:
+                page = input('===输入错误请重新输入，你还有' + str(i) + '次机会===')
+                continue
+                    
 
     for ss in range(int(input('===输入抓取页数：'))):
         page += 1
