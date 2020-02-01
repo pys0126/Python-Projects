@@ -1,7 +1,8 @@
 '''
     手机壁纸爬取网址：https://mobile.alphacoders.com/by-device/524/Redmi-Note-7-Wallpapers?page=1
     电脑壁纸爬取网址：https://wall.alphacoders.com/featured.php?lang=Chinese
-    本python脚本下载地址：https://darkabyss.top/dlc/WALLPAPER.py
+    本Python脚本我已经打包成电脑可执行程序了，下载地址：https://share.weiyun.com/5E6ivwr
+    如果此脚本对你有帮助，可以浏览一下我的网站：https://darkabys.top 我需要你的流量，Thanks!
 '''
 
 from bs4 import BeautifulSoup
