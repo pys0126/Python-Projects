@@ -1,3 +1,9 @@
+'''
+    此程序下载地址：https://share.weiyun.com/52J7qi2
+    我的其他脚本：https://github.com/pys0126/Python/
+    如果此脚本对你有帮助，可以访问我的网站：https:darkabyss.top 我需要你的流量，Thanks!
+'''
+
 import requests
 import tkinter as tk
 
