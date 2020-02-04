@@ -1,6 +1,6 @@
 '''
     爬取的网站为：https://www.mm131.pro/e/action/ListInfo/?classid=1
-    另外此脚本我已打包成了EXE程序，就是像用电脑QQ一样，一个按钮就可以享受视觉盛宴，那么下载地址：https://share.weiyun.com/5WRHxio
+    另外此脚本我已打包成了EXE程序，就是像用电脑QQ一样，一个按钮就可以享受视觉盛宴，那么下载地址：https://share.weiyun.com/5lkhNxS
     如果此脚本对你有帮助😁，可以访问我的网站：https://darkabyss.top 里面有一些翻墙知识，如果你不想看也可以大致浏览一下，我需要你的流量，Thanks!
 '''
 
@@ -14,6 +14,17 @@ import os
 p = -1
 cc = 4
 print("\t本脚本由P=-S编写，有建议或问题致QQ：2493919891\n")
+
+for c in range(cc):
+    cc -= 1
+    int_page = input("\t输入抓取的页数（一页25套图片）：")
+    if int_page == "":
+        print("\t请输入一个整数,你还有" + str(cc) + "次机会！")
+        pass
+    else:
+        break
+
+cc = 4
 for c in range(cc):
     cc -= 1
     page = input("\t输入抓取的页数（一页25套图片）：")
@@ -26,7 +37,7 @@ for c in range(cc):
 
 for i in range(int(page)):
     p += 1
-    html = urlopen("https://mm131.pro/e/action/ListInfo/index.php?page=" + str(p) + "&classid=1").read()
+    html = urlopen("https://mm131.pro/e/action/ListInfo/index.php?page=" + str(int_page+p) + "&classid=1").read()
     soup = BeautifulSoup(html,features="lxml")
     dl_soup = soup.find_all("dl",{"class":"list-left public-box"})
     print("\t开始下载...\n")
@@ -78,7 +89,7 @@ for i in range(int(page)):
                                     save_name = str(all_dir) + "/" + str(alt) + ".jpg"
                                     with open(save_name,"wb") as f:
                                         f.write(r.content)
-                                    print("/t" + save_name)
+                                    print("\t" + save_name)
                 print("\t已下载" + str(img) + "套图\n")
     print("\t已下载" + str(page) + "页图片\n")
 
