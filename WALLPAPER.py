@@ -1,8 +1,7 @@
 '''
     手机壁纸爬取网址：https://mobile.alphacoders.com/by-device/524/Redmi-Note-7-Wallpapers?page=1
     电脑壁纸爬取网址：https://wall.alphacoders.com/featured.php?lang=Chinese
-    本Python脚本我已经打包成电脑可执行程序了，下载地址：https://share.weiyun.com/5E6ivwr
-    如果此脚本对你有帮助，可以浏览一下我的网站：https://darkabys.top 我需要你的流量，Thanks!
+    本python脚本我已经打包成电脑可执行程序了，下载地址：https://share.weiyun.com/5xA7VpV
 '''
 
 from bs4 import BeautifulSoup
@@ -64,7 +63,7 @@ def Phoneimg():
     for w in range(int(page1)):
         p += 1
         htm = urlopen("https://mobile.alphacoders.com/by-device/524/Redmi-Note-7-Wallpapers?page=" + str(int(page)+p-1)).read().decode("utf-8")
-        html = BeautifulSoup(htm,"lxml")
+        html = BeautifulSoup(htm,"html.parser")
         all_a1 = html.find_all("div",{"class":"thumb-element"})
         print("\t-----开始下载图片-----\n")
         for i in all_a1:
@@ -82,7 +81,7 @@ def Phoneimg():
                     pass
                 print("\t==")
                 all_img = urlopen("https://mobile.alphacoders.com/wallpapers/view/" + pipei_allurl[0]).read().decode("utf-8")
-                text_html = BeautifulSoup(all_img,"lxml")
+                text_html = BeautifulSoup(all_img,"html.parser")
                 all_a2 = text_html.find_all("div",{"class":"center"})
                 print("\t======")
                 for l in all_a2:
@@ -145,7 +144,7 @@ def PCimg():
     for ss in range(int(input('===输入抓取页数：'))):
         page += 1
         htm = urlopen("https://wall.alphacoders.com/featured.php?lang=Chinese&page=" + str(page-1)).read().decode("utf-8")
-        html = BeautifulSoup(htm,features="html.parser")
+        html = BeautifulSoup(htm,"html.parser")
         all_a1 = html.find_all("div",{"class":"boxgrid"})
         print('\n')
         print('===开始下载图片===')
@@ -161,7 +160,7 @@ def PCimg():
                 print('///')
                 html2 = urlopen(html1).read().decode("utf-8")
                 print('////')
-                text_html = BeautifulSoup(html2,features="html.parser")
+                text_html = BeautifulSoup(html2,"html.parser")
                 print('/////')
                 all_a2 = text_html.find_all("picture")
                 print('//////')
