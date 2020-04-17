@@ -1,6 +1,6 @@
 '''
     爬取的网站为：https://www.mm131.pro/e/action/ListInfo/?classid=1
-    另外此脚本我已打包成了EXE程序，就是像用电脑QQ一样，一个按钮就可以享受视觉盛宴，那么下载地址：https://share.weiyun.com/56NBq79
+    另外此脚本我已打包成了EXE程序，就是像用电脑QQ一样，一个按钮就可以享受视觉盛宴，那么下载地址：https://share.weiyun.com/5JkO5wR
     如果此脚本对你有帮助😁，可以访问我的网站：https://darkabyss.top 里面有一些翻墙知识，如果你不想看也可以大致浏览一下，我需要你的流量，Thanks!
 '''
 
@@ -55,7 +55,7 @@ for i in range(int(page)):
                     all_dir = "C:\\Users\\Administrator\\Desktop\\img\\" + dir_img
                     os.makedirs(all_dir,exist_ok=True)
                 all_html = urlopen(all_href).read()
-                all_soup = BeautifulSoup(all_html,"lxml")
+                all_soup = BeautifulSoup(all_html,"html.parser")
                 page_url = all_soup.find_all("div",{"class":"content-pic"})
                 for all_page in page_url:
                     page_href = all_page.find_all("a")
@@ -77,7 +77,7 @@ for i in range(int(page)):
                             ints += 1
                             allpage_url = "https://www.mm131.pro" + pageone_url[:-7] + "_" + str(ints) + ".html" 
                             size_url = urlopen(allpage_url).read()
-                            size_html = BeautifulSoup(size_url,"lxml")
+                            size_html = BeautifulSoup(size_url,"html.parser")
                             htmls = size_html.find_all("div",{"class":"content-pic"})
                             for size_h in htmls:
                                 tag_img = size_h.find_all("img")
