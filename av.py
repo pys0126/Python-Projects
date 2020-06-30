@@ -1,7 +1,7 @@
 # coding=utf-8
 '''
     抓取网址：https://mm603.xyz
-    需要的依赖库：lxml和requests
+    需要的依赖库：lxml和requests,在cmd用 pip install [库名称] 安装依赖库
 '''
 
 from lxml import etree
