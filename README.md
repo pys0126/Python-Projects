@@ -1,4 +1,4 @@
-# 如何使用
+# Run xxx.py
 ## 1.安装Python3
 在 https://python.org 下载并安装python3.x。
 ## 2.使用Python脚本
