@@ -1,4 +1,9 @@
 # coding=utf-8
+'''
+    抓取网址：https://mm603.xyz
+    需要的依赖库：lxml和requests
+'''
+
 from lxml import etree
 import requests
 import os
@@ -40,6 +45,8 @@ class Av:
                 f.write(res.content)
             print("已下载"+name+".mp4")
 
-#Av([搜索想要内容]，[保存路径])
-run = Av("SM","C:\\Users\\Administrator\\Downloads\\")
+sea = input("输入你想要的内容：")
+pa = input("输入保存的路径：")
+#Av([搜索想要内容]，[保存路径如：'C:\\Users\\Administrator\\Downloads\\'])
+run = Av(sea,pa)
 run.down_av()
