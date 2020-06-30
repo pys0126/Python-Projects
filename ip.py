@@ -2,7 +2,7 @@
     我的博客：https://darkabyss.top/ （求浏览量）
     功能：抓取国内高匿代理ip信息，抓取网址：https://www.kuaidaili.com/free/inha/1/
     描述：每次抓取会清除信息文件重新写入，有几页抓取不到，建议多给抓取页数
-    已打包exe程序，下载地址：https://share.weiyun.com/5E6ivwr
+    需要安装python3，安装依赖库lxml和requests,安装方法pip install [库名称]
 '''
 
 from lxml import etree
