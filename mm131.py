@@ -1,6 +1,6 @@
 '''
     爬取的网站为：https://www.mm131.pro/e/action/ListInfo/?classid=1
-    另外此脚本我已打包成了EXE程序，就是像用电脑QQ一样，一个按钮就可以享受视觉盛宴，那么下载地址：https://share.weiyun.com/5JkO5wR
+    需要安装python3，安装依赖库bs4和requests,安装方法pip install [库名称]
     如果此脚本对你有帮助😁，可以访问我的网站：https://darkabyss.top 里面有一些翻墙知识，如果你不想看也可以大致浏览一下，我需要你的流量，Thanks!
 '''
 
