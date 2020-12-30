@@ -6,8 +6,8 @@ import os
 print("start")
 while True:
     try:
-        echo = 17
-        trig = 22
+        echo = 17 #BCM 17端口
+        trig = 22 #BCM 22端口
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(trig,GPIO.OUT)
@@ -30,7 +30,7 @@ while True:
         end_time = stop_time - start_time
         data = (end_time * 34300) / 2
         print(data)
-        if int(data) <= 10:
+        if int(data) <= 10: #距离物体小于等于10cm就熄灭指示灯，并传输视频
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(24,GPIO.OUT)
             print("low")
