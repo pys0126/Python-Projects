@@ -6,6 +6,12 @@ import time
 import re
 import os
 
+##########设置代理#############
+http = "http://127.0.0.1:1080"
+https ="https://127.0.0.1:1080"
+##############################
+
+proxies = {"http": http,"https": https}
 start_time = time.time()  #获取开始时间
 user_name = getpass.getuser()  #获取当前计算机用户名
 search = input("输入搜索内容：")  
@@ -16,7 +22,7 @@ stop = int(stop_size) - int(start_size)
 #下载图片函数
 def download(ss,sh=search):
     url = f"http://m.bcoderss.com/tag/{sh}/page/{ss}/"
-    res = requests.get(url)
+    res = requests.get(url,proxies=proxies)
     soup = BeautifulSoup(res.text,"lxml")
     error = soup.title.text
     if re.match("404",error):
@@ -25,18 +31,18 @@ def download(ss,sh=search):
     else:
         li = soup.find("ul",class_="wallpaper").find_all("li")
         for l in li:
-            img_url = l.a["hresf"]
-            res_iu = requests.get(img_url)
+            img_url = l.a["href"]
+            res_iu = requests.get(img_url,proxies=proxies)
             soup_iu = BeautifulSoup(res_iu.text,"lxml")
             img_title = soup_iu.find("div",class_="single-wallpaper")["pageid"]
             img_url = soup_iu.find("div",class_="single-wallpaper").img["src"]
-            get_img = requests.get(img_url)
+            get_img = requests.get(img_url,proxies=proxies)
             try:
-                with open(f"C:\\Users\\{user_name}\\Picturess\\img\\"+img_title+".jpg","wb") as f:
+                with open(f"C:\\Users\\{user_name}\\Pictures\\Camera Roll\\"+img_title+".jpg","wb") as f:
                     f.write(get_img.content)
             except:
                 try:
-                    os.mkdir(f"C:\\Users\\{user_name}\\Picturess\\img")
+                    os.mkdir(f"C:\\Users\\{user_name}\\Pictures\\Camera Roll")
                 except:
                     pass
             print(img_title)
@@ -59,7 +65,3 @@ else:
 #记录时间
 stop_time = time.time()
 print("用时："+str(stop_time - start_time))
-        
-
-
-
