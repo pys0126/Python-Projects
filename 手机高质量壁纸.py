@@ -1,18 +1,11 @@
 # 好壁纸下载
 from bs4 import BeautifulSoup
 import requests
-import getpass
-import time
-import re
-import os
-
-##########设置代理#############
-http = "http://127.0.0.1:1080"
-https ="https://127.0.0.1:1080"
-##############################
+import getpass #用于获取当前计算机名
+import re #正则表达式
+import os #用于创建文件夹
 
 proxies = {"http": http,"https": https}
-start_time = time.time()  #获取开始时间
 user_name = getpass.getuser()  #获取当前计算机用户名
 search = input("输入搜索内容：")  
 start_size = input("输入起始页：")
@@ -61,7 +54,3 @@ else:
         else:
             download(start_size)       
             start_size = int(start_size) + 1
-
-#记录时间
-stop_time = time.time()
-print("用时："+str(stop_time - start_time))
